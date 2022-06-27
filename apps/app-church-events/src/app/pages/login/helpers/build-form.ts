@@ -6,7 +6,7 @@ interface FormLoginModel {
 }
 
 export class FormHelper {
-  protected form: FormGroup<FormLoginModel>;
+  protected form!: FormGroup<FormLoginModel>;
 
   constructor() {
     this.formBuilder();

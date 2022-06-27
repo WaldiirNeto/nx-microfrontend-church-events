@@ -5,7 +5,7 @@ import { ResponseAuthParamsModel } from '../login/models';
 import { LocalStorageService } from '../login/services/local-storage.service';
 
 @Component({
-  selector: 'app-home',
+  selector: 'wn-corporation-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   providers: [LocalStorageService],
@@ -14,7 +14,7 @@ import { LocalStorageService } from '../login/services/local-storage.service';
 })
 export class HomeComponent implements OnInit {
 
-  public username$: Observable<ResponseAuthParamsModel>
+  public username$!: Observable<ResponseAuthParamsModel>
 
   constructor(@Self() private localStorageService: LocalStorageService) { }
 

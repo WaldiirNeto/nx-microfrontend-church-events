@@ -10,6 +10,4 @@ import { RouterModule } from '@angular/router';
   imports: [RouterModule],
 })
 export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
-  constructor(private http: HttpClient) {}
 }

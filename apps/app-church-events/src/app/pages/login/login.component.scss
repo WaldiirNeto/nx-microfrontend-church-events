@@ -1,4 +1,4 @@
-@import "~src/assets/scss/mixins";
+@import "~apps/app-church-events/src/assets/scss/mixins";
 
 .section-card {
     @include flex-dinamic(column, center, center);

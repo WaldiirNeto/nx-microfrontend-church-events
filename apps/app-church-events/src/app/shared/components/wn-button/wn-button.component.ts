@@ -4,13 +4,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
-  selector: 'app-wn-button',
+  selector: 'wn-corporation-button',
   standalone: true,
   imports: [CommonModule, MatButtonModule, MatProgressSpinnerModule],
   styleUrls: ['./wn-button.component.scss'],
   templateUrl: './wn-button.component.html',
 })
 export class WnButtonComponent {
-  @Input() disabled: boolean;
-  @Input() loading: boolean;
+  @Input() disabled!: boolean;
+  @Input() loading!: boolean;
 }

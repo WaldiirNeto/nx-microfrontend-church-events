@@ -11,9 +11,9 @@ import { LocalStorageService } from './services/local-storage.service';
 import { FormHelper } from './helpers/build-form';
 import { AuthParamsModel, ResponseAuthParamsModel } from './models';
 import { MatFormFieldComponent } from '../../shared/components/input-form/mat-form-field.component';
-import { WnButtonComponent } from 'src/app/shared/components/wn-button/wn-button.component';
+import { WnButtonComponent } from '../../shared/components/wn-button/wn-button.component';
 @Component({
-  selector: 'app-login',
+  selector: 'wn-corporation-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   imports: [
@@ -30,7 +30,7 @@ import { WnButtonComponent } from 'src/app/shared/components/wn-button/wn-button
 })
 export class LoginComponent extends FormHelper implements OnDestroy {
   private destroy$ = new Subject();
-  protected loading: boolean;
+  protected loading!: boolean;
 
   constructor(
     @Self() private _loginService: LoginService,
