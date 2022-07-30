@@ -5,6 +5,10 @@
     "api": "apps/api",
     "api-interfaces": "libs/api-interfaces",
     "app-church-events": "apps/app-church-events",
-    "app-church-events-e2e": "apps/app-church-events-e2e"
+    "app-church-events-e2e": "apps/app-church-events-e2e",
+    "home": "apps/home",
+    "home-e2e": "apps/home-e2e",
+    "shell": "apps/shell",
+    "shell-e2e": "apps/shell-e2e"
   }
 }

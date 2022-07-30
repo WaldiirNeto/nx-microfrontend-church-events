@@ -1,27 +1,24 @@
 {
   "projectType": "application",
-  "sourceRoot": "apps/app-church-events/src",
+  "sourceRoot": "apps/shell/src",
   "prefix": "wn.corporation",
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
+      "executor": "@nrwl/angular:webpack-browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/app-church-events",
-        "index": "apps/app-church-events/src/index.html",
-        "main": "apps/app-church-events/src/main.ts",
-        "polyfills": "apps/app-church-events/src/polyfills.ts",
-        "tsConfig": "apps/app-church-events/tsconfig.app.json",
+        "outputPath": "dist/apps/shell",
+        "index": "apps/shell/src/index.html",
+        "main": "apps/shell/src/main.ts",
+        "polyfills": "apps/shell/src/polyfills.ts",
+        "tsConfig": "apps/shell/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": [
-          "apps/app-church-events/src/favicon.ico",
-          "apps/app-church-events/src/assets"
-        ],
-        "styles": [
-          "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-          "apps/app-church-events/src/styles.scss"
-        ],
-        "scripts": []
+        "assets": ["apps/shell/src/favicon.ico", "apps/shell/src/assets"],
+        "styles": ["apps/shell/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/shell/webpack.config.js"
+        }
       },
       "configurations": {
         "production": {
@@ -39,11 +36,14 @@
           ],
           "fileReplacements": [
             {
-              "replace": "apps/app-church-events/src/environments/environment.ts",
-              "with": "apps/app-church-events/src/environments/environment.prod.ts"
+              "replace": "apps/shell/src/environments/environment.ts",
+              "with": "apps/shell/src/environments/environment.prod.ts"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/shell/webpack.prod.config.js"
+          }
         },
         "development": {
           "buildOptimizer": false,
@@ -57,40 +57,38 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@nrwl/angular:module-federation-dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "app-church-events:build:production"
+          "browserTarget": "shell:build:production"
         },
         "development": {
-          "browserTarget": "app-church-events:build:development"
+          "browserTarget": "shell:build:development"
         }
       },
       "defaultConfiguration": "development",
       "options": {
-        "proxyConfig": "apps/app-church-events/proxy.conf.json"
+        "port": 4200,
+        "publicHost": "http://localhost:4200"
       }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "app-church-events:build"
+        "browserTarget": "shell:build"
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": [
-          "apps/app-church-events/**/*.ts",
-          "apps/app-church-events/**/*.html"
-        ]
+        "lintFilePatterns": ["apps/shell/**/*.ts", "apps/shell/**/*.html"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/app-church-events"],
+      "outputs": ["coverage/apps/shell"],
       "options": {
-        "jestConfig": "apps/app-church-events/jest.config.ts",
+        "jestConfig": "apps/shell/jest.config.ts",
         "passWithNoTests": true
       }
     }
