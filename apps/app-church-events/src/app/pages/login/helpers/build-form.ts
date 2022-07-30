@@ -5,7 +5,7 @@ interface FormLoginModel {
   password: FormControl<string | null>;
 }
 
-export class FormHelper {
+export class FormLoginHelper {
   protected form!: FormGroup<FormLoginModel>;
 
   constructor() {

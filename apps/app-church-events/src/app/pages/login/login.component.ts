@@ -1,14 +1,13 @@
 import { Component, OnDestroy, Self, SkipSelf } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Subject, takeUntil } from 'rxjs';
 import LoginService from './services/login.service';
 import { LocalStorageService } from './services/local-storage.service';
-import { FormHelper } from './helpers/build-form';
+import { FormLoginHelper } from './helpers/build-form';
 import { AuthParamsModel, ResponseAuthParamsModel } from './models';
 import { MatFormFieldComponent } from '../../shared/components/input-form/mat-form-field.component';
 import { WnButtonComponent } from '../../shared/components/wn-button/wn-button.component';
@@ -28,7 +27,7 @@ import { WnButtonComponent } from '../../shared/components/wn-button/wn-button.c
   providers: [LoginService, LocalStorageService],
   standalone: true,
 })
-export class LoginComponent extends FormHelper implements OnDestroy {
+export class LoginComponent extends FormLoginHelper implements OnDestroy {
   private destroy$ = new Subject();
   protected loading!: boolean;
 
